@@ -69,6 +69,8 @@ create_rmd <- function(pkgs.df = NULL,
     "---",
     "")
 
+  css <- paste0("<style>body, .main-container {max-width: 100% !important; width: 100% !important;}</style>")
+
   table <- knitr::asis_output(knitr::kable(output_table(pkgs.df)))
 
   parag <- write_citation_paragraph(pkgs.df,
@@ -77,6 +79,7 @@ create_rmd <- function(pkgs.df = NULL,
 
   ## write Rmd to disk
   writeLines(c(yaml.header,
+               css,
                "## R packages used",
                "",
                table,
