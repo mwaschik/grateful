@@ -14,7 +14,8 @@
 render_citations <- function(Rmd.file = NULL,
                              out.dir = NULL,
                              out.format = c("html", "docx", "pdf", "md",
-                                            "tex-fragment", "tex-document")
+                                            "tex-fragment", "tex-document"),
+                             quiet = NULL
                              ) {
 
   if (is.null(Rmd.file)) {
@@ -47,7 +48,8 @@ render_citations <- function(Rmd.file = NULL,
     output_format = output,
     output_file = paste0(out.name, ".", out.format),
     output_dir = out.dir,
-    output_options = output.options
+    output_options = output.options,
+    quiet = quiet
   )
 
   out.file <- file.path(out.dir, paste0(out.name, ".", out.format))

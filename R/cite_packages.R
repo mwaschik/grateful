@@ -171,6 +171,7 @@ cite_packages <- function(output = c("file", "paragraph", "table", "citekeys"),
                           passive.voice = FALSE,
                           out.file = "grateful-report",
                           bib.file = "grateful-refs",
+                          quiet = F,
                           ...) {
 
   if (is.null(out.dir)) {
@@ -205,11 +206,13 @@ cite_packages <- function(output = c("file", "paragraph", "table", "citekeys"),
                       out.dir = out.dir,
                       out.format = out.format,
                       include.RStudio = include.RStudio,
-                      passive.voice = passive.voice)
+                      passive.voice = passive.voice,
+                      quiet = quiet)
 
-    message(paste0("\nCitation report available at ", rmd))
-    return(rmd)  # return path to file
-
+    if (quiet == F) {
+      message(paste0("\nCitation report available at ", rmd))
+      return(rmd)  # return path to file
+    }
   }
 
 

@@ -29,6 +29,7 @@ create_rmd <- function(pkgs.df = NULL,
                                       "tex-fragment", "tex-document"),
                        include.RStudio = FALSE,
                        passive.voice = FALSE,
+                       quiet = NULL,
                        ...) {
 
   if (is.null(pkgs.df)) {
@@ -94,6 +95,7 @@ create_rmd <- function(pkgs.df = NULL,
     out.file <- render_citations(Rmd.file,
                                  out.format = out.format,
                                  out.dir = out.dir,
+                                 quiet = quiet,
                                  ...)
     file.remove(Rmd.file)
   }
